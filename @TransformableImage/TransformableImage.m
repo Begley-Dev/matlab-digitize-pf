@@ -16,8 +16,9 @@ classdef TransformableImage <handle
         end
         
         load(this)
-        bc = center(this)
+        bc = findCenter(this)
         transform(this, bc)
+        moveToOrigin(this,bc)
         ax = plot(this)
         
     end

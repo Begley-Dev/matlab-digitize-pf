@@ -5,7 +5,7 @@ x = input('Needs transform (y/n)', 's');
 
 if (strcmp(x,'y') || strcmp(x,'Y') || strcmp(x,'yes') || strcmp(x, 'Yes') || strcmp(x,'YES'))
     this.tim.transform(this.bc);
-    this.bc = this.tim.center;
+    this.bc = this.tim.findCenter;
     this.requireTransform;
 else
     return

@@ -3,7 +3,8 @@ function importImage(this)
 %   Detailed explanation goes here
     this.tim.load();
     this.tim.plot();
-    this.bc = this.tim.center();
+    this.bc = this.tim.findCenter();
     this.requireTransform;
+    this.tim.moveToOrigin(this.bc);
 end
 

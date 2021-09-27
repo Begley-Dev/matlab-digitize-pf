@@ -4,20 +4,18 @@ classdef ContourLevel < handle
     
     properties
         contourLevel = 0;
-        center = [];
         polygons = {};
         contourVertX = [];
         contourVertY = [];
+        dotHandles = [];
     end
     
     methods
-        function obj = Layer(contourLevel)
-            obj.contourLevel = contourLevel;
+        function this = ContourLevel(contourLevel)
+            this.contourLevel = contourLevel;
         end
         
-        function addPolygon(obj, polygon)
-            obj.polygons{end+1} = polygon;
-        end
+        addPolygon(this)
         
         %         function addPolygon(obj, polygon)
         %             obj.contourVertX(:,end+1) = polygon.Vertices(:,1);
@@ -26,10 +24,10 @@ classdef ContourLevel < handle
         %             obj.contourLevel = polygon(1,1);
         %         end
         
-        function isInLayer = isInLayer(obj, x,y)
+        function isInLayer = isInLayer(this, x,y)
             isInLayer = false;
-            for i = length(obj.polygons)
-                pgon = obj.polygons{i};
+            for i = 1:length(this.polygons)
+                pgon = this.polygons{i};
                 TFin = isinterior(pgon, x, y);
                 if TFin
                     isInLayer = true;
@@ -37,10 +35,10 @@ classdef ContourLevel < handle
             end
         end
         
-        function plot(obj)
-            for i = 1:length(obj.polygons)
+        function plot(this)
+            for i = 1:length(this.polygons)
                 hold on
-                plot(obj.polygons{i})
+                plot(this.polygons{i})
                 hold off
             end
         end

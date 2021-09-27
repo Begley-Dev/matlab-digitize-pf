@@ -1,4 +1,4 @@
-function bc = center(this)
+function bc = findCenter(this)
 %UNTITLED5 Summary of this function goes here
 %   Detailed explanation goes here
 

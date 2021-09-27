@@ -4,8 +4,10 @@ classdef ComponentPoleFigure <handle
     
     properties
         pf; %MTEX PoleFigure
+        pole;
         tim = TransformableImage; %TransformableImage
         cls = {}; %cell array of contour levels
+        baseline;
         bc; %boundary circle
     end
     
@@ -17,6 +19,7 @@ classdef ComponentPoleFigure <handle
         
         importImage(this)
         requireTransform(this)
+        newContourLevel(this,value)
         
     end
 end
